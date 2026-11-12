@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Create account | Smart Job Recommender</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <main class="auth-grid">
+    <div class="auth-side">
+      <section class="card brand-card">
+                <div class="logo brand">
+          <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="9" fill="#4f46e5"/>
+            <path d="M9 17.5l4.5 4.5L23 11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-text">Smart Job <span>Recommender</span></span>
+        </div>
+        <h1>Start with the skills you already have.</h1>
+        <p>Create an account to save your profile and your favourite jobs.</p>
+      </section>
+      <div class="mini-row">
+        <section class="card mini-card">
+          <h2>Your data stays yours</h2>
+          <p>Passwords are hashed, and you only ever see your own account.</p>
+        </section>
+        <section class="card mini-card">
+          <h2>Honest scores</h2>
+          <p>A match score shows fit with a job's requirements, not your chance of being hired.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="card form-card" aria-labelledby="title">
+      <h2 id="title">Create your account</h2>
+      <p class="subtitle">It takes less than a minute.</p>
+
+      <p id="form-status" class="status" role="alert" hidden></p>
+
+      <form id="register-form" novalidate>
+        <div class="field">
+          <label for="name">Full name</label>
+          <input id="name" name="name" type="text" autocomplete="name" maxlength="100" required>
+          <p id="name-error" class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <p id="email-error" class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" autocomplete="new-password"
+                   maxlength="128" aria-describedby="password-hint" required>
+            <button type="button" class="toggle-password" data-target="password"
+                    data-label="password" aria-label="Show password" aria-pressed="false">Show</button>
+          </div>
+          <p id="password-hint" class="hint">At least 10 characters, with a letter and a number.</p>
+          <p id="password-error" class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="confirm_password">Confirm password</label>
+          <div class="password-wrap">
+            <input id="confirm_password" name="confirm_password" type="password"
+                   autocomplete="new-password" maxlength="128" required>
+            <button type="button" class="toggle-password" data-target="confirm_password"
+                    data-label="confirmation" aria-label="Show confirmation" aria-pressed="false">Show</button>
+          </div>
+          <p id="confirm_password-error" class="field-error"></p>
+        </div>
+
+        <button type="submit" class="btn">Create account</button>
+      </form>
+
+      <p class="switch">Already registered? <a href="login.html">Sign in</a></p>
+    </section>
+
+    <p class="sample-note">Jobs shown in this app are sample data, not live listings.</p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

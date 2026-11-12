@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sign in | Smart Job Recommender</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/auth.css">
+</head>
+<body>
+  <main class="auth-grid">
+    <div class="auth-side">
+      <section class="card brand-card">
+                <div class="logo brand">
+          <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" rx="9" fill="#4f46e5"/>
+            <path d="M9 17.5l4.5 4.5L23 11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="brand-text">Smart Job <span>Recommender</span></span>
+        </div>
+        <h1>Find the jobs that fit your skills.</h1>
+        <p>See how well you match a role, and what to learn next.</p>
+      </section>
+      <div class="mini-row">
+        <section class="card mini-card">
+          <h2>See your match</h2>
+          <p>Every job shows the skills you have and the ones you are missing.</p>
+        </section>
+        <section class="card mini-card">
+          <h2>Know what to learn</h2>
+          <p>Your skill gaps point to the next thing worth studying.</p>
+        </section>
+      </div>
+    </div>
+
+    <section class="card form-card" aria-labelledby="title">
+      <h2 id="title">Welcome back</h2>
+      <p class="subtitle">Sign in to see your dashboard.</p>
+
+      <p id="form-status" class="status" role="alert" hidden></p>
+
+      <form id="login-form" novalidate>
+        <div class="field">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" autocomplete="email" required>
+          <p id="email-error" class="field-error"></p>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-wrap">
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <button type="button" class="toggle-password" data-target="password"
+                    data-label="password" aria-label="Show password" aria-pressed="false">Show</button>
+          </div>
+          <p id="password-error" class="field-error"></p>
+        </div>
+
+        <button type="submit" class="btn">Sign in</button>
+      </form>
+
+      <p class="switch">New here? <a href="register.html">Create an account</a></p>
+    </section>
+
+    <p class="sample-note">Jobs shown in this app are sample data, not live listings.</p>
+  </main>
+
+  <script src="js/api.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

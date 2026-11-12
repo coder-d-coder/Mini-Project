@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Smart Job Recommender</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/tokens.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+    <header class="topbar-wrap">
+    <div class="topbar">
+      <a class="brand" href="dashboard.html" aria-label="Smart Job Recommender home">
+        <svg class="brand-mark" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true">
+          <rect width="32" height="32" rx="9" fill="#4f46e5"/>
+          <path d="M9 17.5l4.5 4.5L23 11" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="brand-text">Smart Job <span>Recommender</span></span>
+      </a>
+      <div class="menu-wrap">
+        <button id="menu-btn" class="btn btn-secondary" type="button"
+                aria-haspopup="true" aria-expanded="false" aria-controls="menu">
+          <span id="menu-name">Account</span> &#9662;
+        </button>
+        <div id="menu" class="card menu" hidden>
+          <p id="menu-email" class="hint"></p>
+          <button id="edit-profile" class="menu-item" type="button">Edit profile</button>
+          <button id="logout" class="menu-item" type="button">Log out</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="bento">
+        <section class="card feature welcome" aria-labelledby="welcome-title">
+      <p class="eyebrow">Student career dashboard</p>
+      <div>
+        <h1 id="welcome-title">Loading...</h1>
+        <p id="welcome-text" class="section-note"></p>
+      </div>
+    </section>
+
+    <section class="card stat" aria-labelledby="stat-match-label">
+      <div class="stat-top">
+        <p id="stat-match-label" class="stat-label">Best match</p>
+        <a class="circle-btn" href="#jobs-title" aria-label="Go to recommended jobs">&#8599;</a>
+      </div>
+      <div>
+        <p id="stat-match" class="big-number">&mdash;</p>
+        <p id="stat-match-note" class="stat-note">Select skills to see your top fit.</p>
+      </div>
+    </section>
+
+    <section class="card stat" aria-labelledby="stat-skills-label">
+      <p id="stat-skills-label" class="stat-label">Skills selected</p>
+      <div>
+        <p id="stat-skills" class="big-number">0</p>
+        <p id="stat-skills-note" class="stat-note"></p>
+      </div>
+    </section>
+
+    <div class="col-left">
+      <section class="card search" aria-labelledby="search-title">
+        <h2 id="search-title">Career search</h2>
+        <p class="section-note">Choose your skills and a target role, then update your results.</p>
+        <p id="search-status" class="status" role="alert" hidden></p>
+        <form id="search-form">
+          <div class="field">
+            <label for="role">Target role</label>
+            <select id="role"></select>
+          </div>
+          <fieldset>
+            <legend>Your skills</legend>
+            <div id="skill-grid" class="skill-grid">Loading skills...</div>
+          </fieldset>
+          <button type="submit" class="btn">Update recommendations</button>
+        </form>
+      </section>
+
+      <section class="card feature saved" aria-labelledby="saved-title">
+        <h2 id="gap-title">Skill gap</h2>
+        <p id="gap-note" class="section-note"></p>
+        <ul id="gap-list" class="gap-list"></ul>
+      </section>
+
+      <section class="card feature saved" aria-labelledby="saved-title">
+        <h2 id="saved-title">Saved jobs</h2>
+          <p id="saved-status" class="status" role="alert" hidden></p>
+          <div id="saved-list"></div>
+      </section>
+    </div>
+
+    <div class="col-right">
+
+      <section class="card jobs" aria-labelledby="jobs-title">
+        <h2 id="jobs-title">Recommended jobs</h2>
+        <p class="section-note">
+          Sample jobs from this project's database, not live listings. The percentage shows
+          how well your skills, experience and location fit a job's requirements. It is not
+          the chance of being hired.
+        </p>
+        <div id="jobs-list" tabindex="0" aria-label="Recommended jobs list"></div>
+      </section>
+
+      <section class="card resources" aria-labelledby="res-title">
+        <h2 id="res-title">Learning resources</h2>
+        <p class="section-note">Curated links, mostly official documentation. Not live course data.</p>
+        <div id="resource-list"></div>
+      </section>
+    </div>
+
+  </main>
+
+  <dialog id="profile-dialog" aria-labelledby="dialog-title">
+    <h2 id="dialog-title">Edit profile</h2>
+    <p id="profile-status" class="status" role="alert" hidden></p>
+    <form id="profile-form">
+      <div class="field">
+        <label for="p-name">Full name</label>
+        <input id="p-name" maxlength="100" required>
+      </div>
+      <div class="field">
+        <label for="p-location">Location</label>
+        <input id="p-location" maxlength="100" placeholder="e.g. Delhi">
+      </div>
+      <div class="field">
+        <label for="p-exp">Years of experience</label>
+        <input id="p-exp" type="number" min="0" max="50" value="0">
+      </div>
+      <div class="dialog-actions">
+        <button type="button" id="p-cancel" class="btn btn-secondary">Cancel</button>
+        <button type="submit" class="btn">Save</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="js/api.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
